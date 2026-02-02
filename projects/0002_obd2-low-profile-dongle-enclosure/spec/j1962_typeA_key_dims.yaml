@@ -1,0 +1,24 @@
+standard: "SAE J1962:2016"
+connector_type: "Type A"
+scope: "external test equipment connector geometry + vehicle access guidance"
+
+# Connector mouth profile (Figure A2)
+mouth_width_outer_mm: 37.55
+mouth_width_mid_mm: 31.5
+mouth_width_inner_mm: 29.5
+side_angle_deg: 15
+corner_radius_top_mm: 1.25
+corner_radius_bottom_mm: 2.75
+
+# Baseline force requirements (documented in SAE J1962 text)
+connect_force_max_no_springclip_N: 110
+connect_force_max_with_springclip_N: 142
+polarization_mis_mate_force_N: 220
+
+# Environment baseline (referenced temperature class)
+temp_min_C: -40
+temp_max_C: 85
+
+# Vehicle access guidance (use as keep-out context)
+technician_access_area_min_width_mm: 80
+technician_access_area_min_height_mm: 100
