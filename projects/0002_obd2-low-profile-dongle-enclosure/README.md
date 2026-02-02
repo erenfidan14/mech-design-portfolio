@@ -1,65 +1,34 @@
-# 0002 — Low-profile OBD-II Dongle Enclosure (Mechanical Case Study)
+# 0002 — Low-profile OBD-II Dongle Enclosure (Spec-based)
 
 ## 1. Problem
-Many OBD-II dongles and cables protrude into the driver’s knee/footwell volume.
-Goal: design a low-profile enclosure concept that reduces protrusion, adds strain relief, and is suitable for prototyping (3D print) and future injection molding.
+Many OBD-II dongles protrude into the driver footwell. This project designs a low-profile enclosure concept around the standardized SAE J1962 Type A interface, targeting reduced protrusion and robust strain relief.
 
-Context: OBD-II uses a standardized 16-pin diagnostic connector specified by SAE J1962. (Reference link in Sources.)
+## 2. Requirements and constraints (from sources)
+Interface
+- Must mate with SAE J1962 Type A geometry (external test equipment connector vs vehicle connector).
 
-## 2. Requirements and constraints
-Functional
-- Must interface with the standard OBD-II connector geometry (J1962 ecosystem).
-- Must support a right-angle cable exit concept to reduce protrusion in the footwell.
-- Must include strain relief and cable bend protection.
+Vehicle clearance
+- Must respect connector access / clearance guidance (technician access area + DLC clearance area).
 
-Mechanical / use environment
-- Target connector durability: 200 mating cycles (baseline reference).
-- Design for insertion force up to 142 N max and extraction force up to 88 N max (baseline reference).
-- Temperature range target: −40 to +85 °C (baseline reference).
+Forces / robustness (baseline)
+- Connection/disconnection forces (max) and mis-mating force requirement inform housing strength and latch robustness.
 
-Envelope targets (starting point)
-- Male 16M connector envelope reference: 32.5 L × 19.0 H × 41.1 W mm.
-- Female 16F connector envelope reference: 28.0 L × 23.0 H × 61.0 W mm.
-- Target “protrusion from vehicle port” ≤ 60 mm (design goal; to be validated on a real vehicle).
+Environment (baseline)
+- Temperature class reference: -40 °C to +85 °C.
 
-Manufacturing
-- Prototype: PETG / PA / ABS 3D print, 0.2 mm layers.
-- Future: injection-molded PA66 or PBT-GF class materials.
+## 3. Design targets (engineering choices)
+- “Protrusion from vehicle port” target: <= 60 mm (design goal, not a standard requirement).
+- Right-angle cable exit.
+- Strain relief: cable bend support, no sharp edges, relief length >= 25 mm.
 
-## 3. Approach
-- Define interface envelope + keep-out volume.
-- Create 2 housing concepts:
-  A) Two-piece clamshell with screws
-  B) Snap-fit with serviceable latch
-- Select concept based on manufacturability, assembly time, and strain-relief performance.
+## 4. Deliverables (what will exist in this repo)
+- Spec file with key dimensions taken from SAE J1962 figures.
+- CAD reference envelope (connector mouth + keep-out volumes).
+- Enclosure Concept A: two-piece clamshell with screws.
+- Enclosure Concept B: snap-fit (serviceable latch).
+- Drawing pack PDF (overall + section + critical dims).
+- Renders for portfolio page.
 
-## 4. CAD and documentation (planned)
-- Parametric master model (STL exports for quick tests)
-- STEP export for NX/Rhino interoperability
-- 2D drawing pack (PDF): overall, sections, assembly, and critical dims
-- Render for portfolio (clean white background)
-
-## 5. Verification (planned)
-- Clearance checks vs envelope + keep-out
-- Hand calc / quick estimate for snap-fit stress or screw boss integrity
-- Simple pull test plan: ensure housing survives repeated insert/extract loads without cracking
-
-## 6. Results (targets)
-- Reduced protrusion vs typical straight dongle
-- Robust strain relief
-- Clean documentation pack suitable for a hiring portfolio
-
-## 7. Artifacts (folders)
-- /cad        STEP, STL exports
-- /drawings   PDF drawings
-- /analysis   notes + basic calculations
-- /renders    images for README
-- /assets     reference images (your own photos)
-
-## 8. Sources
-- OBD-II standard connector context + 16-pin J1962 note:
-  Advanced Vehicle Technologies, “OBD-II Cable and Connector Information” (1999).
-- Baseline insertion/extraction forces and cycles (example connector spec):
-  ATTEND, OBDII Type A male connector page (226A-1202).
-- Baseline connector envelope dimensions (example catalog listing):
-  Delphi/Packard Metri-Pack OBD-II catalog page.
+## 5. Sources
+- SAE J1962:2016 (figures for Type A connector geometry + access/clearance guidance).
+- Example connector spec listing forces/durability (secondary baseline).
